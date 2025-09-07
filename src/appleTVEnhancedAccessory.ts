@@ -1252,12 +1252,12 @@ plugin after you have fixed the root cause. Enable debug logging to see the orig
         }
 
         // only make device state changes if Apple TV is on
-        if (this.service!.getCharacteristic(this.platform.characteristic.Active).value === this.platform.characteristic.Active.INACTIVE) {
-            this.log.debug(`New Device State Draft discarded (since Apple TV is off): ${event.value}`);
-            this.lastDeviceStateDraft = null;
-            this.lastDeviceState = null;
-            return;
-        }
+        // if (this.service!.getCharacteristic(this.platform.characteristic.Active).value === this.platform.characteristic.Active.INACTIVE) {
+        //     this.log.debug(`New Device State Draft discarded (since Apple TV is off): ${event.value}`);
+        //     this.lastDeviceStateDraft = null;
+        //     this.lastDeviceState = null;
+        //     return;
+        // }
 
         const deviceStateDelay: number = (this.config.deviceStateDelay ?? 0) * 1000;
         this.log.debug(`New Device State Draft (might be discarded if there are state changes until the configured delay of \
